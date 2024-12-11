@@ -42,6 +42,7 @@ class RenaperTest(unittest.TestCase):
         with self.assertRaises(ApiKeyForPackageNotFoundException) as context:
             self.renaper._get_request_headers(MOCK_URL, package_id)
 
+    @unittest.skipIf(PAQUETE1_API_KEY == '', "api key not set")
     def test_get_requests_headers_valid(self):
         package_id = 1
         data = self.renaper._get_request_headers(MOCK_URL, package_id)
@@ -69,6 +70,7 @@ class RenaperTest(unittest.TestCase):
         self.assertFalse(data['status'])
         self.assertIn('error', data)
 
+    @unittest.skipIf(PAQUETE1_API_KEY == '', "api key not set")
     def test_package1(self):
         number = ""
         gender = ""
@@ -103,6 +105,7 @@ class RenaperTest(unittest.TestCase):
         self.assertTrue(data['status'])
         self.assertEqual(data['code_description'], 'END_OPERATION_OK')
 
+    @unittest.skipIf(PAQUETE2_API_KEY == '', "api key not set")
     def atest_package2(self):
         with open("mocks/selfie.jpg", "rb") as image_file:
             encoded_selfie = base64.b64encode(image_file.read())
@@ -112,6 +115,7 @@ class RenaperTest(unittest.TestCase):
         data = self.renaper.face_login(number, gender, [selfie_list], TEST_FINGERPRINT)
         self.assertTrue(data['status'])
 
+    @unittest.skipIf(PAQUETE3_API_KEY == '', "api key not set")
     def test_package3(self):
         number = ""
         gender = ""
