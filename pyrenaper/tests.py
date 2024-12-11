@@ -1,7 +1,7 @@
 from pyrenaper.renaper import Renaper
 from pyrenaper.mocks.response import MockResponse
-from environments import ONBOARDING
-from exceptions import GeoBlockedRequestException, ApiKeyForPackageNotFoundException, InvalidImage
+from pyrenaper.environments import ONBOARDING
+from pyrenaper.exceptions import GeoBlockedRequestException, ApiKeyForPackageNotFoundException, InvalidImage
 import base64
 import unittest
 
