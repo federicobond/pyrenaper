@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyrenaper"
+version="0.0.21"
+author="Damian Sastre"
+description="Python implementation of Argentina's RENAPER API service."
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests>=2.25.1",
+    "Pillow>=8.2.0",
+    "coverage",
+    "zxing"
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Repository = "https://github.com/damiansastre/pyrenaper.git"
+Issues = "https://github.com/damiansastre/pyrenaper/issues"
+
+[tool.hatch]
+
+[tool.hatch.envs.default.scripts]
+test = "python -m unittest {args:pyrenaper.tests}"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyrenaper"]
